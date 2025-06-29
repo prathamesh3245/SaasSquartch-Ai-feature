@@ -1,0 +1,5 @@
+CompanyName,Industry,Employees,Revenue,Website,Country,Source,EmailScore,domain_age_years,has_founder_linkedin,registry_verified,num_funding_rounds,
+Acme Inc,EdTech,120,2.5,acme.com,US,Apollo,0.89,6,0,1,2
+MedTechPro,Health,250,3.1,medtech.com,India,BuiltWith,0.78,7,1,0,3
+Finlytics,Finance,80,1.2,finlytics.ai,Canada,LinkedIn,0.92,3,1,1,1
+GreenGrow,AgriTech,60,0.9,greengrow.io,US,Crunchbase,0.81,9,0,0,2

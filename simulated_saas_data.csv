@@ -1,0 +1,11 @@
+company_name,arr_million,growth_rate_pct,burn_rate_pct,runway_months,churn_rate_pct,cash_flow_status,acquisition_candidate
+Company_1,4.37,11.4,62.8,4,12.5,Negative,No
+Company_2,9.56,77.9,29.8,8,6.0,Positive,Yes
+Company_3,7.59,68.3,40.5,6,3.3,Positive,No
+Company_4,6.39,24.9,45.6,10,10.9,Positive,No
+Company_5,2.4,22.7,51.9,8,7.7,Negative,No
+Company_6,2.4,22.8,75.0,3,3.6,Negative,No
+Company_7,1.52,31.3,34.0,5,8.4,Positive,No
+Company_8,8.8,46.7,56.0,10,2.4,Negative,No
+Company_9,6.41,40.2,61.5,13,13.8,Negative,No
+Company_10,7.37,30.4,23.3,15,5.4,Positive,Yes
