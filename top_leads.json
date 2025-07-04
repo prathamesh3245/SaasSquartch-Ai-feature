@@ -1,0 +1,67 @@
+[
+  {
+    "id": 79,
+    "confidence": 0.9999936819076538,
+    "score": 100.0,
+    "insight": "Lead with confidence score 100.00 is influenced by:\n- registry_verified contributes positively (+0.21)\n- has_founder_linkedin contributes positively (+0.20)\n- domain_age_years contributes negatively (-0.15)\n",
+    "norm_revenue": 0.8542621775111117,
+    "norm_funding": 0.6112998130180671,
+    "EmailScore": -1.6076818256030434,
+    "domain_age_years": -1.3362565502890018,
+    "has_founder_linkedin": 0.6938886664887111,
+    "registry_verified": 0.8379305815963921,
+    "num_funding_rounds": 0.6112998130180668
+  },
+  {
+    "id": 81,
+    "confidence": 0.9999938011169434,
+    "score": 100.0,
+    "insight": "Lead with confidence score 100.00 is influenced by:\n- registry_verified contributes positively (+0.21)\n- has_founder_linkedin contributes positively (+0.20)\n- norm_revenue contributes positively (+0.09)\n",
+    "norm_revenue": 0.6179076798471678,
+    "norm_funding": 0.6112998130180671,
+    "EmailScore": -0.3306579641311224,
+    "domain_age_years": -0.3017353500652585,
+    "has_founder_linkedin": 0.6938886664887111,
+    "registry_verified": 0.8379305815963921,
+    "num_funding_rounds": 0.6112998130180668
+  },
+  {
+    "id": 31,
+    "confidence": 0.9999849796295166,
+    "score": 100.0,
+    "insight": "Lead with confidence score 100.00 is influenced by:\n- registry_verified contributes positively (+0.25)\n- has_founder_linkedin contributes positively (+0.25)\n- norm_funding contributes positively (+0.22)\n",
+    "norm_revenue": -0.724037057211653,
+    "norm_funding": 1.5004631774079826,
+    "EmailScore": 1.0071765574108902,
+    "domain_age_years": -0.9914161502144208,
+    "has_founder_linkedin": 0.6938886664887111,
+    "registry_verified": 0.8379305815963921,
+    "num_funding_rounds": 1.500463177407982
+  },
+  {
+    "id": 58,
+    "confidence": 0.9999997615814209,
+    "score": 100.0,
+    "insight": "Lead with confidence score 100.00 is influenced by:\n- registry_verified contributes positively (+0.17)\n- domain_age_years contributes positively (+0.14)\n- norm_revenue contributes positively (+0.14)\n",
+    "norm_revenue": 1.5382922919747828,
+    "norm_funding": -0.2778635513718483,
+    "EmailScore": -0.2698473040610309,
+    "domain_age_years": 1.7673070503822284,
+    "has_founder_linkedin": 0.6938886664887111,
+    "registry_verified": 0.8379305815963921,
+    "num_funding_rounds": -0.27786355137184854
+  },
+  {
+    "id": 28,
+    "confidence": 0.9999963045120239,
+    "score": 100.0,
+    "insight": "Lead with confidence score 100.00 is influenced by:\n- registry_verified contributes positively (+0.21)\n- has_founder_linkedin contributes positively (+0.19)\n- domain_age_years contributes positively (+0.10)\n",
+    "norm_revenue": 0.27510556428764027,
+    "norm_funding": 0.6112998130180671,
+    "EmailScore": 1.1287978775510732,
+    "domain_age_years": 1.077626250233066,
+    "has_founder_linkedin": 0.6938886664887111,
+    "registry_verified": 0.8379305815963921,
+    "num_funding_rounds": 0.6112998130180668
+  }
+]

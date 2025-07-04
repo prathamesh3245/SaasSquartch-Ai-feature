@@ -1,1 +1,1 @@
-Output,fig_arr_growth.show()
+top_leads = shap_df.sort_values(by="lead_quality_score", ascending=False).head(5)

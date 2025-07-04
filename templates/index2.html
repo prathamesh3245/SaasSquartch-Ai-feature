@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<!-- <head>
+  <title>🔍 Lead Scoring Dashboard</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; padding: 20px; }
+    h2 { color: #333; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background-color: #f0f0f0; }
+    pre { margin: 0; font-size: 14px; }
+    button { padding: 10px 20px; margin-top: 10px; font-weight: bold; }
+    img { width: 100%; max-width: 800px; margin-top: 20px; }
+  </style>
+</head> -->
+<head>
+  <title>🔍 Lead Scoring Dashboard</title>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0e0e0f, #1c1c1e);
+    color: #e6e6e6;
+    /* background-image:  url('neww.jpg'); */
+    margin: 0;
+    padding: 40px;
+  }
+
+  h2 {
+    font-size: 28px;
+    color: #00ffe5;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #2c2c2c;
+    padding-bottom: 6px;
+  }
+
+  form, #resultBox {
+    background: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 255, 229, 0.1);
+    padding: 24px;
+    margin-top: 20px;
+    border: 1px solid #2c2c2c;
+  }
+
+  label {
+    font-weight: 600;
+    margin-top: 12px;
+    display: block;
+  }
+
+  input, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    background-color: #181818;
+    border: 1px solid #444;
+    color: #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border 0.3s ease;
+  }
+
+  input:focus, select:focus {
+    border: 1px solid #00ffe5;
+    outline: none;
+  }
+
+  button {
+    margin-top: 24px;
+    background: linear-gradient(to right, #00ffe5, #009bff);
+    color: #000;
+    border: none;
+    font-weight: bold;
+    padding: 12px 24px;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  button:hover {
+    background: linear-gradient(to right, #009bff, #00ffe5);
+    transform: translateY(-2px);
+  }
+
+  table {
+    width: 100%;
+    margin-top: 30px;
+    border-collapse: collapse;
+    box-shadow: 0 4px 16px rgba(0, 255, 229, 0.05);
+  }
+
+  th, td {
+    padding: 12px 16px;
+    border: 1px solid #333;
+  }
+
+  th {
+    background-color: #1f1f1f;
+    color: #00ffe5;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) {
+    background-color: #1a1a1a;
+  }
+
+  tr:hover {
+    background-color: #222;
+  }
+
+  img {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 24px;
+    border-radius: 12px;
+    border: 2px solid #00ffe5;
+  }
+
+  #confidenceBar {
+    width: 100%;
+    background-color: #222;
+    border-radius: 8px;
+    margin-top: 10px;
+    overflow: hidden;
+    height: 24px;
+    border: 1px solid #444;
+  }
+
+  #confidence-fill {
+    background: linear-gradient(to right, #00ffc3, #00bfff);
+    height: 100%;
+    width: 0%;
+    transition: width 0.5s ease;
+  }
+
+  #confidence-text {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #ccc;
+  }
+
+  #confidence-text strong {
+    color: #00ffe5;
+  }
+
+  pre {
+    background-color: #101010;
+    padding: 16px;
+    border-radius: 8px;
+    overflow-x: auto;
+    color: #00ffe5;
+    font-size: 13px;
+  }
+
+  @media (max-width: 768px) {
+    body {
+      padding: 20px;
+    }
+  }
+</style>
+
+</head>
+<body>
+  
+  
+
+  <img src="{{ url_for('static', filename='neww.jpg') }}" alt=""  height="850px" width="100%"     style=" border: none;">
+
+
+
+  
+  <form id="leadForm">
+  <h2>Submit a New Lead</h2>
+  
+  <label>Normalized Revenue:</label>
+  <input type="number" name="norm_revenue" step="0.01" required><br>
+
+  <label>Normalized Funding:</label>
+  <input type="number" name="norm_funding" step="0.01" required><br>
+
+  <label>Email Score:</label>
+  <input type="number" name="EmailScore" step="0.01" required><br>
+
+  <label>Domain Age (years):</label>
+  <input type="number" name="domain_age_years" step="0.1" required><br>
+
+  <label>Has Founder LinkedIn:</label>
+  <select name="has_founder_linkedin">
+    <option value="0">No</option>
+    <option value="1">Yes</option>
+  </select><br>
+
+  <label>Registry Verified:</label>
+  <select name="registry_verified">
+    <option value="0">No</option>
+    <option value="1">Yes</option>
+  </select><br>
+
+  <label>Number of Funding Rounds:</label>
+  <input type="number" name="num_funding_rounds" required><br>
+
+  <button type="submit">Submit Lead</button>
+</form>
+
+<p id="submissionResult"></p>
+<script>
+  document.getElementById('leadForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+    const data = {};
+    formData.forEach((value, key) => {
+      data[key] = parseFloat(value); // Convert all to float
+    });
+
+    try {
+      const response = await fetch('/submit-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      const result = await response.json();
+      document.getElementById('submissionResult').innerText = result.message;
+    } catch (err) {
+      console.error(err);
+      document.getElementById('submissionResult').innerText = "❌ Error submitting lead.";
+    }
+  });
+</script>
+
+
+  <h2>📈 Top 5 AI-Scored Leads with SHAP Insights</h2>
+  <button onclick="loadLeads()">🔄 Load Leads</button>
+  <table id="lead-table">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Confidence Score</th>
+        <th>SHAP-Based Insight</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <h2>🧬 SHAP Summary Visualization</h2>
+  <img src="/shap-summary" alt="SHAP Summary Plot">
+
+  <script>
+    async function loadLeads() {
+      const response = await fetch('/top-leads');
+      const leads = await response.json();
+      const tbody = document.querySelector('#lead-table tbody');
+      tbody.innerHTML = '';
+
+      leads.forEach((lead, i) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${i + 1}</td>
+          <td>${lead.lead_quality_score}</td>
+          <td><pre>${lead.insight}</pre></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+  </script>
+
+
+  <h2>🔝 Top Leads</h2>
+<table border="1" id="leads-table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Confidence</th>
+      <th>Score</th>
+      <th>Insight</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<script>
+  fetch('/top-leads')
+    .then(res => res.json())
+    .then(data => {
+      const tbody = document.querySelector("#leads-table tbody");
+      data.forEach(lead => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${lead.id}</td>
+          <td>${lead.confidence.toFixed(2)}</td>
+          <td>${lead.score.toFixed(2)}</td>
+          <td style="text-align: left;">${lead.insight.replace(/\n/g, "<br>")}</td>
+        `;
+        tbody.appendChild(row);
+      });
+    })
+    .catch(err => console.error("Error loading leads:", err));
+</script>
+<h2>📊 SHAP Summary</h2>
+<img src="/shap-summary" alt="SHAP Summary" style="max-width: 100%;">
+
+<!-- Confidence Progress Bar -->
+<div style="width: 100%; background: #eee; border-radius: 10px; overflow: hidden;">
+  <div id="confidence-fill" style="
+    height: 20px;
+    width: 0%;
+    background-color: green;
+    border-radius: 10px;
+    transition: width 0.5s ease-in-out;
+  "></div>
+</div>
+
+<!-- Confidence Text -->
+<p id="confidence-text">🔥 Confidence: 0% — <strong>Cold</strong></p>
+<script>
+  const confidenceScore = { confidence_score };  // Injected from Flask
+  const dealTier = "{{ deal_tier }}";
+
+  const fill = document.getElementById("confidence-fill");
+  const text = document.getElementById("confidence-text");
+
+  // Update bar width
+  fill.style.width = confidenceScore + "%";
+
+  // Set color based on confidence
+  if (confidenceScore > 80) {
+    fill.style.backgroundColor = "green";
+  } else if (confidenceScore > 60) {
+    fill.style.backgroundColor = "orange";
+  } else {
+    fill.style.backgroundColor = "red";
+  }
+
+  // Update text
+  text.innerHTML = `🔥 Confidence: ${confidenceScore.toFixed(2)}% — <strong>${dealTier}</strong>`;
+</script>
+<div id="resultBox" style="margin-top: 20px; display: none;">
+  <h3>🧠 Lead Analysis Result</h3>
+  <p id="scoreResult"></p>
+  <div style="background-color: #eee; height: 20px; border-radius: 10px; overflow: hidden;">
+    <div id="confidenceBar" style="height: 100%; background-color: #4CAF50; width: 0%; text-align: center; color: white;"></div>
+  </div>
+  <pre id="insightText"></pre>
+</div>
+
+<script>
+  document.getElementById('leadForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+    const data = {};
+
+    for (const [key, value] of formData.entries()) {
+      data[key] = parseFloat(value);
+    }
+
+    const res = await fetch('/submit-lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+
+    const result = await res.json();
+
+    if (res.ok) {
+      document.getElementById('resultBox').style.display = 'block';
+      document.getElementById('scoreResult').textContent = `Confidence Score: ${result.confidence_score} (${result.deal_tier})`;
+
+      // Update confidence bar width and color
+      const bar = document.getElementById('confidenceBar');
+      bar.style.width = `${result.confidence_score}%`;
+      bar.textContent = `${result.confidence_score}%`;
+
+      if (result.confidence_score < 60) {
+        bar.style.backgroundColor = '#d9534f'; // red
+      } else if (result.confidence_score < 80) {
+        bar.style.backgroundColor = '#f0ad4e'; // orange
+      } else {
+        bar.style.backgroundColor = '#5cb85c'; // green
+      }
+
+      document.getElementById('insightText').textContent = result.insight;
+    } else {
+      alert(result.message || 'Something went wrong!');
+    }
+  });
+</script>
+
+</body>
+</html> 

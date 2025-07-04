@@ -1,3 +1,20 @@
 // {
 //   "python.pythonPath": "C:/Python313/python.exe"
 // }
+{
+  "tailwindCSS.includeLanguages": {
+    "plaintext": "html",
+    "javascript": "javascript",
+    "javascriptreact": "javascript",
+    "typescriptreact": "typescript"
+  },
+  "css.validate": false,
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "tailwindCSS.experimental.classRegex": [
+    "tw`([^`]*)",
+    "tw\\(([^)]*)\\)",
+    "class(Name)?=\"([^\"]*)"
+  ]
+}

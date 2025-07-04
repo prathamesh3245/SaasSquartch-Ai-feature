@@ -124,3 +124,5 @@ if 'scored_df' in locals():
     )
 else:
     st.info("Please run lead scoring first.")
+
+
